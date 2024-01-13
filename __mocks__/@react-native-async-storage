@@ -1,0 +1,9 @@
+import AsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
+
+export * from "@react-native-async-storage/async-storage/jest/async-storage-mock";
+
+AsyncStorage.setItem = jest.fn((key, value) => Promise.resolve());
+AsyncStorage.getItem = jest.fn((key) => Promise.resolve(null));
+AsyncStorage.removeItem = jest.fn((key) => Promise.resolve());
+AsyncStorage.clear = jest.fn(() => Promise.resolve());
+export default AsyncStorage;
