@@ -1,5 +1,5 @@
 import { NewTask } from "../NewTask";
-import { render } from "@testing-library/react-native";
+import { render, waitFor } from "@testing-library/react-native";
 import React from "react";
 
 jest.mock("react-native-select-dropdown", () => ({
@@ -24,7 +24,9 @@ jest.mock("@react-native-async-storage/async-storage", () =>
 
 describe("Teste do componente NewTask", () => {
   it("Verifica se o NewTask foi renderizado", async () => {
-    render(<NewTask />);
-    expect(<NewTask />).toBeTruthy();
+    await waitFor(() => {
+      render(<NewTask />);
+      expect(<NewTask />).toBeTruthy();
+    });
   });
 });
